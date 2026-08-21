@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="light" dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rare Book Sourcing &amp; Lending | StoryVault Service</title><link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"/>
+<meta content="Learn about StoryVault's specialized rare book ordering, global archivist search, and private library consultation services." name="description"/>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="assets/css/dark-mode.css" rel="stylesheet"/>
+<link href="assets/css/rtl.css" rel="stylesheet"/>
+<link href="assets/css/responsive.css" rel="stylesheet"/>
+</head>
+<body class="public-page">
+<!-- Header Topbar -->
+<div class="header-top">
+<div class="container">
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+<div class="d-flex flex-wrap align-items-center gap-3 text-muted">
+<span><i class="fa-regular fa-clock me-1 text-primary"></i> Mon - Sat: 8:00 AM - 9:00 PM</span>
+<span><i class="fa-solid fa-phone me-1 text-primary"></i> +91 80 4123 7788</span>
+<span class="d-none d-lg-inline"><i class="fa-solid fa-location-dot me-1 text-primary"></i> 12, Library Avenue, Indiranagar, Bengaluru, Karnataka</span>
+</div>
+<div class="small text-muted"><i class="fa-solid fa-shield-halved text-success me-1"></i> Library Portal Online</div>
+</div>
+</div>
+</div>
+<!-- Header -->
+<header class="main-navbar sticky-nav">
+<div class="container">
+<nav class="navbar navbar-expand-lg p-0 align-items-center">
+<a class="navbar-brand" href="index.html"><i class="fa-solid fa-book-bookmark"></i><span>StoryVault</span></a>
+<div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-2">
+<button class="btn-icon-toggle theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+<button class="btn-icon-toggle rtl-toggle-btn" onclick="toggleRTL()" title="Toggle RTL Layout"><i class="fa-solid fa-right-left"></i></button>
+</div>
+<button aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler border-0" data-bs-target="#mainNavbarContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="mainNavbarContent">
+<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Home</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="index.html">Bookshop &amp; Library</a></li><li><a class="dropdown-item" href="home-2.html">Membership Library</a></li></ul></li>
+<li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+<li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+<li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-actions d-flex flex-wrap align-items-center justify-content-center gap-2 mt-3 mt-lg-0">
+<button class="btn-icon-toggle theme-toggle-btn d-none d-lg-inline-flex" onclick="toggleTheme()" title="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+<button class="btn-icon-toggle rtl-toggle-btn d-none d-lg-inline-flex" onclick="toggleRTL()" title="Toggle RTL Layout"><i class="fa-solid fa-right-left"></i></button>
+<a class="btn btn-story btn-story-primary ms-lg-1" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Sign In</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<section class="section-padding">
+<div class="container">
+<div class="row g-5 align-items-center">
+<div class="col-lg-6">
+<img alt="Rare Books Service" class="img-fluid rounded-4 shadow-lg border border-color" src="assets/images/library/rare-books.jpg"/>
+</div>
+<div class="col-lg-6">
+<span class="section-subtitle">Specialized Service</span>
+<h1 class="font-heading display-6 fw-bold mb-3">Rare &amp; Collector Edition Book Sourcing</h1>
+<p class="lead text-secondary mb-4">Finding a rare first edition, signed author copy, or out-of-print historical manuscript requires international archivist connections. Our concierge desk handles authentication, condition reporting, and secure acquisition.</p>
+<ul class="pricing-features mb-4">
+<li><i class="fa-solid fa-check me-2"></i> Global network of certified antiquarian dealers</li>
+<li><i class="fa-solid fa-check me-2"></i> Professional binding &amp; archival condition reports</li>
+<li><i class="fa-solid fa-check me-2"></i> Insurance &amp; temperature-controlled shipping</li>
+</ul>
+<button class="btn btn-story btn-story-primary glow-effect" onclick="showToast('Request Submitted', 'Our rare book archivist will contact you shortly.', 'success')">
+<i class="fa-solid fa-paper-plane me-1"></i> Request Rare Book Sourcing
+                    </button>
+</div>
+</div>
+<!-- FAQ Section -->
+<div class="mt-5 pt-4">
+<h3 class="font-heading fw-bold mb-4">Frequently Asked Questions</h3>
+<div class="accordion" id="serviceFAQ">
+<div class="accordion-item bg-surface border-color">
+<h2 class="accordion-header">
+<button class="accordion-button fw-bold" data-bs-target="#faq1" data-bs-toggle="collapse" type="button">
+                                How long does rare book sourcing take?
+                            </button>
+</h2>
+<div class="accordion-collapse collapse show" data-bs-parent="#serviceFAQ" id="faq1">
+<div class="accordion-body text-muted">
+                                Typically between 5 to 14 business days depending on the global location of the seller or private collector archive.
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer-main">
+<div class="container">
+<div class="row g-4 align-items-start">
+<div class="col-lg-4">
+<a class="navbar-brand footer-brand mb-3" href="index.html"><i class="fa-solid fa-book-bookmark"></i><span>StoryVault</span></a>
+<p class="footer-copy me-lg-4">A welcoming bookshop and lending library for buying, borrowing, discovering, and sharing books with a vibrant reading community.</p>
+<div class="d-flex gap-2 footer-socials"><a aria-label="Facebook" class="btn-icon-toggle" href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a aria-label="Instagram" class="btn-icon-toggle" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-instagram"></i></a><a aria-label="X" class="btn-icon-toggle" href="https://x.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-x-twitter"></i></a><a aria-label="LinkedIn" class="btn-icon-toggle" href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></div>
+</div>
+<div class="col-6 col-md-3 col-lg-2"><h5 class="footer-heading">Explore</h5><ul class="footer-links"><li><a href="books.html">Browse Books</a></li><li><a href="membership.html">Membership</a></li><li><a href="events.html">Events</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html">About Us</a></li></ul></div>
+<div class="col-6 col-md-3 col-lg-2"><h5 class="footer-heading">Services</h5><ul class="footer-links"><li><a href="services.html">Library Services</a></li><li><a href="service-sell-book.html">Sell a Book</a></li><li><a href="service-donate-books.html">Donate Books</a></li><li><a href="member-dashboard.html">Member Portal</a></li><li><a href="contact.html">Help &amp; Contact</a></li></ul></div>
+<div class="col-md-6 col-lg-4"><h5 class="footer-heading">Stay in the Story</h5><p class="footer-copy small">Get new arrivals, member events, reading picks, and library updates in your inbox.</p><form class="needs-validation" novalidate="" onsubmit="event.preventDefault(); showToast('Subscribed', 'You are subscribed to StoryVault updates.', 'success');"><div class="input-group"><input aria-label="Email address" class="form-control" placeholder="Email address" required="" type="email"/><button class="btn btn-story-primary" type="submit">Subscribe</button></div></form></div>
+</div>
+<div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3"><div>© 2026 StoryVault India All rights reserved.</div><div class="d-flex flex-wrap gap-3"><a class="small" href="login.html"><i class="fa-solid fa-user me-1"></i> Member Sign In</a><a class="small" href="login.html"><i class="fa-solid fa-shield-halved me-1"></i> Admin Sign In</a></div></div>
+</div>
+</footer>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

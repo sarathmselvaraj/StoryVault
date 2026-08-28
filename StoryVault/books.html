@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="light" dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Browse Books Catalog | StoryVault Library</title><link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="Explore StoryVault's collection of thousands of books. Search by genre, author, availability, and rating." name="description"/>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="assets/css/dark-mode.css" rel="stylesheet"/>
+<link href="assets/css/rtl.css" rel="stylesheet"/>
+<link href="assets/css/responsive.css" rel="stylesheet"/>
+</head>
+<body class="public-page">
+<!-- Premium Sticky Header Navbar -->
+<header class="main-navbar sticky-nav">
+<div class="container">
+<nav class="navbar navbar-expand-lg p-0 align-items-center">
+<a class="navbar-brand" href="index.html"><i class="fa-solid fa-book-bookmark"></i><span>StoryVault</span></a>
+<div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-2">
+<button class="btn-icon-toggle theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+<button class="btn-icon-toggle rtl-toggle-btn" onclick="toggleRTL()" title="Toggle RTL Layout"><i class="fa-solid fa-right-left"></i></button>
+</div>
+<button aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler border-0" data-bs-target="#mainNavbarContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="mainNavbarContent">
+<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Home</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="index.html">Bookshop &amp; Library</a></li><li><a class="dropdown-item" href="home-2.html">Membership Library</a></li></ul></li>
+<li class="nav-item"><a class="nav-link active" href="books.html">Books</a></li>
+<li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-actions d-flex flex-wrap align-items-center justify-content-center gap-2 mt-3 mt-lg-0">
+<button class="btn-icon-toggle theme-toggle-btn d-none d-lg-inline-flex" onclick="toggleTheme()" title="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+<button class="btn-icon-toggle rtl-toggle-btn d-none d-lg-inline-flex" onclick="toggleRTL()" title="Toggle RTL Layout"><i class="fa-solid fa-right-left"></i></button>
+<a class="btn btn-story btn-story-primary ms-lg-1" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Sign In</a>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<!-- Page Banner -->
+<section class="bg-surface-alt py-5 border-bottom border-color">
+<div class="container text-center">
+<span class="section-subtitle">Literary Treasury</span>
+<h1 class="font-heading fs-1 fw-bold">Browse Library Catalog</h1>
+<p class="text-muted max-w-600 mx-auto mb-0">Search thousands of curated titles across mystery, fiction, science, biography, and fantasy.</p>
+</div>
+</section>
+<!-- Main Catalog Section -->
+<section class="section-padding">
+<div class="container">
+<div class="row g-4">
+<!-- Sidebar Filters -->
+<div class="col-lg-3 col-xl-2">
+<div class="story-card p-4 sticky-top" style="top: 100px; z-index: 10;">
+<h5 class="fw-bold mb-3 border-bottom border-color pb-2"><i class="fa-solid fa-filter me-2 text-primary"></i> Filter Books</h5>
+<!-- Search Field -->
+<div class="mb-4">
+<label class="form-label fw-semibold small">Keyword Search</label>
+<div class="input-group">
+<span class="input-group-text bg-surface border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+<input class="form-control border-start-0" id="catalog-search-input" placeholder="Title, author, category..." type="text"/>
+</div>
+</div>
+<!-- Genre Filter -->
+<div class="mb-4">
+<label class="form-label fw-semibold small">Genre &amp; Category</label>
+<select class="form-select" id="catalog-genre-filter">
+<option value="all">All Genres</option>
+<option value="Mystery">Mystery &amp; Drama</option>
+<option value="Historical Fiction">Historical Fiction</option>
+<option value="Romance">Romance</option>
+<option value="Sci-Fi">Sci-Fi &amp; Astronomy</option>
+<option value="Poetry">Poetry &amp; Essays</option>
+<option value="Fantasy">Fantasy</option>
+<option value="Contemporary Fiction">Contemporary Fiction</option>
+<option value="Adventure">Adventure &amp; Exploration</option>
+</select>
+</div>
+<!-- Availability Filter -->
+<div class="mb-4">
+<label class="form-label fw-semibold small">Desk Availability</label>
+<select class="form-select" id="catalog-availability-filter">
+<option value="all">All Availability</option>
+<option value="available">Available Now</option>
+<option value="borrowed">On Hold / Reserve</option>
+</select>
+</div>
+<!-- Sort Filter -->
+<div class="mb-4">
+<label class="form-label fw-semibold small">Sort Collection</label>
+<select class="form-select" id="catalog-sort-filter">
+<option value="popular">Popularity (Default)</option>
+<option value="rating">Highest Rated</option>
+<option value="az">Title (A–Z)</option>
+<option value="za">Title (Z–A)</option>
+<option value="price-low">Price: Low to High</option>
+<option value="price-high">Price: High to Low</option>
+</select>
+</div>
+<!-- Reset Button -->
+<button class="btn btn-sm btn-story-secondary w-100" onclick="document.getElementById('catalog-search-input').value=''; document.getElementById('catalog-genre-filter').value='all'; document.getElementById('catalog-availability-filter').value='all'; document.getElementById('catalog-sort-filter').value='popular'; window.location.reload();">
+<i class="fa-solid fa-rotate-left me-1"></i> Reset Filters
+</button>
+</div>
+</div>
+<!-- Catalog Content Grid -->
+<div class="col-lg-9 col-xl-10">
+<!-- Top Toolbar -->
+<div class="d-flex flex-wrap justify-content-between align-items-center bg-surface p-3 rounded-3 border border-color mb-4">
+<span class="fw-semibold text-muted" id="results-count">Showing 10 Titles</span>
+<div class="d-flex align-items-center gap-2">
+<button class="btn btn-sm btn-outline-secondary active" id="view-grid-btn" title="Grid View"><i class="fa-solid fa-border-all"></i></button>
+<button class="btn btn-sm btn-outline-secondary" id="view-list-btn" title="List View"><i class="fa-solid fa-list"></i></button>
+</div>
+</div>
+<!-- Books Grid: 3-col desktop, 2-col tablet, 1-col phone -->
+<div class="row g-4" id="catalog-books-grid">
+<!-- Item 1: The Quiet Archive -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b1" data-availability="available" data-genre="Mystery" data-price="599" data-rating="4.8" data-title="The Quiet Archive">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">Available</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b1" onclick="toggleWishlist('b1', 'The Quiet Archive')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View The Quiet Archive" class="book-cover-link" href="book-details.html?id=b1"><img alt="The Quiet Archive" class="book-cover" src="assets/images/books/book1.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Mystery / Drama</span>
+<h4 class="book-title"><a href="book-details.html?id=b1">The Quiet Archive</a></h4>
+<div class="book-author">By Clara Vance</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.8 (124)</div>
+<div class="book-price-bar">
+<span class="book-price">₹599</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b1">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Beyond the Lantern -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b2" data-availability="available" data-genre="Historical Fiction" data-price="549" data-rating="4.7" data-title="Beyond the Lantern">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">1 Copy Left</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b2" onclick="toggleWishlist('b2', 'Beyond the Lantern')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View Beyond the Lantern" class="book-cover-link" href="book-details.html?id=b2"><img alt="Beyond the Lantern" class="book-cover" src="assets/images/books/book2.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Historical Fiction</span>
+<h4 class="book-title"><a href="book-details.html?id=b2">Beyond the Lantern</a></h4>
+<div class="book-author">By Arthur Pendelton</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.7 (98)</div>
+<div class="book-price-bar">
+<span class="book-price">₹549</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b2">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3: Letters from Winter -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b3" data-availability="available" data-genre="Romance" data-price="499" data-rating="4.9" data-title="Letters from Winter">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">Available</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b3" onclick="toggleWishlist('b3', 'Letters from Winter')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View Letters from Winter" class="book-cover-link" href="book-details.html?id=b3"><img alt="Letters from Winter" class="book-cover" src="assets/images/books/book3.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Romance</span>
+<h4 class="book-title"><a href="book-details.html?id=b3">Letters from Winter</a></h4>
+<div class="book-author">By Evelyn Harper</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.9 (210)</div>
+<div class="book-price-bar">
+<span class="book-price">₹499</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b3">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 4: The Last Observatory -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b4" data-availability="available" data-genre="Sci-Fi" data-price="699" data-rating="4.8" data-title="The Last Observatory">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">3 Copies Left</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b4" onclick="toggleWishlist('b4', 'The Last Observatory')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View The Last Observatory" class="book-cover-link" href="book-details.html?id=b4"><img alt="The Last Observatory" class="book-cover" src="assets/images/books/book4.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Sci-Fi / Astronomy</span>
+<h4 class="book-title"><a href="book-details.html?id=b4">The Last Observatory</a></h4>
+<div class="book-author">By Dr. Julian Sterling</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.8 (156)</div>
+<div class="book-price-bar">
+<span class="book-price">₹699</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b4">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 5: A Study in Rain -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b5" data-availability="available" data-genre="Poetry" data-price="399" data-rating="4.6" data-title="A Study in Rain">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">Available</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b5" onclick="toggleWishlist('b5', 'A Study in Rain')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View A Study in Rain" class="book-cover-link" href="book-details.html?id=b5"><img alt="A Study in Rain" class="book-cover" src="assets/images/books/book5.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Poetry &amp; Essays</span>
+<h4 class="book-title"><a href="book-details.html?id=b5">A Study in Rain</a></h4>
+<div class="book-author">By Soren Lindqvist</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.6 (84)</div>
+<div class="book-price-bar">
+<span class="book-price">₹399</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b5">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 6: The Midnight Cartographer -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b6" data-availability="available" data-genre="Fantasy" data-price="749" data-rating="4.9" data-title="The Midnight Cartographer">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">2 Copies Left</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b6" onclick="toggleWishlist('b6', 'The Midnight Cartographer')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View The Midnight Cartographer" class="book-cover-link" href="book-details.html?id=b6"><img alt="The Midnight Cartographer" class="book-cover" src="assets/images/books/book6.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Fantasy</span>
+<h4 class="book-title"><a href="book-details.html?id=b6">Midnight Cartographer</a></h4>
+<div class="book-author">By Cassandra Vale</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.9 (178)</div>
+<div class="book-price-bar">
+<span class="book-price">₹749</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b6">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 7: The Glass Garden -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b7" data-availability="available" data-genre="Contemporary Fiction" data-price="579" data-rating="4.7" data-title="The Glass Garden">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">4 Copies Left</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b7" onclick="toggleWishlist('b7', 'The Glass Garden')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View The Glass Garden" class="book-cover-link" href="book-details.html?id=b7"><img alt="The Glass Garden" class="book-cover" src="assets/images/books/book7.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Contemporary Fiction</span>
+<h4 class="book-title"><a href="book-details.html?id=b7">The Glass Garden</a></h4>
+<div class="book-author">By Flora Montgomery</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.7 (112)</div>
+<div class="book-price-bar">
+<span class="book-price">₹579</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b7">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 8: Before the City Sleeps -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b8" data-availability="available" data-genre="Mystery" data-price="629" data-rating="4.8" data-title="Before the City Sleeps">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">3 Copies Left</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b8" onclick="toggleWishlist('b8', 'Before the City Sleeps')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View Before the City Sleeps" class="book-cover-link" href="book-details.html?id=b8"><img alt="Before the City Sleeps" class="book-cover" src="assets/images/books/book8.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Crime / Thriller</span>
+<h4 class="book-title"><a href="book-details.html?id=b8">Before the City Sleeps</a></h4>
+<div class="book-author">By Marcus Reed</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.8 (142)</div>
+<div class="book-price-bar">
+<span class="book-price">₹629</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b8">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 9: Where the Wild Stars Begin -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b9" data-availability="available" data-genre="Adventure" data-price="649" data-rating="4.9" data-title="Where the Wild Stars Begin">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge badge-glow book-badge-status">5 Copies Left</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b9" onclick="toggleWishlist('b9', 'Where the Wild Stars Begin')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View Where the Wild Stars Begin" class="book-cover-link" href="book-details.html?id=b9"><img alt="Where the Wild Stars Begin" class="book-cover" src="assets/images/books/book9.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Adventure / Exploration</span>
+<h4 class="book-title"><a href="book-details.html?id=b9">Where Wild Stars Begin</a></h4>
+<div class="book-author">By Talia Rivers</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.9 (190)</div>
+<div class="book-price-bar">
+<span class="book-price">₹649</span>
+<a class="btn btn-sm btn-story-outline" href="book-details.html?id=b9">Borrow</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 10: The House of Forgotten Hours -->
+<div class="col-12 col-md-6 col-lg-4 catalog-item-col" data-book-id="b10" data-availability="borrowed" data-genre="Mystery" data-price="699" data-rating="4.8" data-title="The House of Forgotten Hours">
+<div class="story-card glow-effect-hover h-100">
+<div class="book-card-img-wrap">
+<span class="badge bg-secondary book-badge-status">On Reserve</span>
+<button class="btn-wishlist-toggle book-action-btns" data-book-id="b10" onclick="toggleWishlist('b10', 'The House of Forgotten Hours')"><i class="fa-regular fa-heart"></i></button>
+<a aria-label="View The House of Forgotten Hours" class="book-cover-link" href="book-details.html?id=b10"><img alt="The House of Forgotten Hours" class="book-cover" src="assets/images/books/book10.jpg"/></a>
+</div>
+<div class="book-info-body">
+<span class="book-genre">Gothic Mystery</span>
+<h4 class="book-title"><a href="book-details.html?id=b10">House of Forgotten Hours</a></h4>
+<div class="book-author">By Gideon Thorne</div>
+<div class="book-rating"><i class="fa-solid fa-star text-warning"></i> 4.8 (165)</div>
+<div class="book-price-bar">
+<span class="book-price">₹699</span>
+<button class="btn btn-sm btn-story-secondary" onclick="requestBorrow('The House of Forgotten Hours')">Reserve</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer-main">
+<div class="container">
+<div class="row g-4 align-items-start">
+<div class="col-lg-4">
+<a class="navbar-brand footer-brand mb-3" href="index.html"><i class="fa-solid fa-book-bookmark"></i><span>StoryVault</span></a>
+<p class="footer-copy me-lg-4">A welcoming bookshop and lending library for buying, borrowing, discovering, and sharing books with a vibrant reading community.</p>
+<div class="d-flex gap-2 footer-socials"><a aria-label="Facebook" class="btn-icon-toggle" href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a aria-label="Apple" class="btn-icon-toggle" href="https://www.apple.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-apple"></i></a><a aria-label="X" class="btn-icon-toggle" href="https://x.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-x-twitter"></i></a><a aria-label="LinkedIn" class="btn-icon-toggle" href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></div>
+</div>
+<div class="col-6 col-md-3 col-lg-2"><h5 class="footer-heading">Explore</h5><ul class="footer-links"><li><a href="books.html">Browse Books</a></li><li><a href="membership.html">Membership</a></li><li><a href="events.html">Events</a></li><li><a href="blog.html">Journal</a></li><li><a href="about.html">About Us</a></li></ul></div>
+<div class="col-6 col-md-3 col-lg-2"><h5 class="footer-heading">Services</h5><ul class="footer-links"><li><a href="services.html">Library Services</a></li><li><a href="service-sell-book.html">Sell a Book</a></li><li><a href="service-donate-books.html">Donate Books</a></li><li><a href="member-dashboard.html">Member Portal</a></li><li><a href="contact.html">Help &amp; Contact</a></li></ul></div>
+<div class="col-md-6 col-lg-4"><h5 class="footer-heading">Stay in the Story</h5><p class="footer-copy small">Get new arrivals, member events, reading picks, and library updates in your inbox.</p><form class="needs-validation" novalidate="" onsubmit="event.preventDefault(); showToast('Subscribed', 'You are subscribed to StoryVault updates.', 'success');"><div class="input-group"><input aria-label="Email address" class="form-control" placeholder="Email address" required="" type="email"/><button class="btn btn-story-primary" type="submit">Subscribe</button></div></form></div>
+</div>
+<div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3"><div>© 2026 StoryVault India All rights reserved.</div><div class="d-flex flex-wrap gap-3"><a class="small" href="login.html?role=member"><i class="fa-solid fa-user me-1"></i> Member Sign In</a><a class="small" href="login.html?role=admin"><i class="fa-solid fa-shield-halved me-1"></i> Admin Sign In</a></div></div>
+</div>
+</footer>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="light" dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard | StoryVault Library &amp; Bookstore</title><link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="StoryVault Admin Management Portal for library catalog, member borrowings, desk approvals, orders, events, and settings." name="description"/>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="assets/css/dark-mode.css" rel="stylesheet"/>
+<link href="assets/css/rtl.css" rel="stylesheet"/>
+<link href="assets/css/responsive.css" rel="stylesheet"/>
+</head>
+<body class="dashboard-page admin-portal-page">
+<div class="dashboard-wrapper">
+<!-- Sidebar Navigation Drawer -->
+<aside class="dashboard-sidebar collapse d-lg-block" id="adminSidebar"><div class="d-flex justify-content-between align-items-center mb-4"><a class="navbar-brand mb-0" href="index.html"><i class="fa-solid fa-book-bookmark"></i><span>StoryVault</span></a><button class="btn-close d-lg-none" data-bs-target="#adminSidebar" data-bs-toggle="collapse" type="button"></button></div><div class="portal-profile-card"><img alt="Admin Sarah" src="assets/images/team/team1.jpg"/><div><small class="portal-label">Demo Admin Profile</small><h6 class="mb-1 fw-bold">Meera Krishnan</h6><span class="badge bg-danger">Administrator</span></div></div><div class="portal-sidebar-tools"><div class="portal-sidebar-tools-header"><span>Portal Controls</span><small>Quick access</small></div><div class="portal-sidebar-control-list"><button class="portal-sidebar-control theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark / Light Mode" type="button"><span class="portal-control-icon"><i class="fa-solid fa-moon"></i></span><span class="portal-control-copy"><strong>Theme</strong><small class="theme-mode-label">Dark / Light mode</small></span></button><button class="portal-sidebar-control rtl-toggle-btn" onclick="toggleRTL()" title="Toggle RTL / LTR Layout" type="button"><span class="portal-control-icon"><i class="fa-solid fa-right-left"></i></span><span class="portal-control-copy"><strong>RTL / LTR</strong><small>RTL / LTR</small></span></button><div class="dropdown portal-notification-dropdown"><button aria-expanded="false" class="portal-sidebar-control w-100 text-start" data-bs-toggle="dropdown" title="Notifications" type="button"><span class="portal-control-icon position-relative"><i class="fa-regular fa-bell"></i><span class="portal-notification-badge">4</span></span><span class="portal-control-copy"><strong>Alerts</strong><small>4 items need attention</small></span><i class="fa-solid fa-chevron-right portal-control-chevron"></i></button><div class="dropdown-menu portal-notification-menu p-3"><h6 class="fw-bold mb-2">Notifications</h6><div class="portal-notification-item border-bottom"><strong>New borrow request #REQ-9012</strong><div class="text-muted">Alexander requested The Quiet Archive.</div></div><div class="portal-notification-item"><strong>1 book due today</strong><div class="text-muted">Letters from Winter needs attention.</div></div></div></div></div></div><div class="sidebar-group-label">Management</div><ul class="dashboard-menu"><li><a class="active" href="#sec-overview"><i class="fa-solid fa-chart-line"></i> Overview</a></li><li><a href="#sec-requests"><i class="fa-solid fa-hand-holding-hand"></i> Borrow Requests</a></li><li><a href="#sec-books"><i class="fa-solid fa-book"></i> Book Catalog</a></li><li><a href="#sec-members"><i class="fa-solid fa-users"></i> Members</a></li><li><a href="#sec-orders"><i class="fa-solid fa-cart-shopping"></i> Orders</a></li><li><a href="#sec-settings"><i class="fa-solid fa-gear"></i> Settings</a></li></ul><div class="sidebar-group-label">Shortcuts</div><ul class="dashboard-menu"><li><a href="sell-donate.html"><i class="fa-solid fa-book-arrow-up"></i> Sell / Donation Page</a></li><li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events Page</a></li><li><a href="index.html"><i class="fa-solid fa-globe"></i> Public Website</a></li><li class="pt-3 border-top border-color"><a class="" href="index.html"><i class="fa-solid fa-globe"></i> Back to Website</a></li></ul></aside>
+<!-- Main Content Area -->
+<main class="dashboard-content">
+<!-- Top Dashboard Header (Sticky Spatial UI Bar) -->
+<div class="dashboard-topbar"><button class="btn btn-sm btn-story-secondary d-lg-none dashboard-menu-toggle" data-bs-target="#adminSidebar" data-bs-toggle="collapse" type="button"><i class="fa-solid fa-bars"></i></button><div class="dashboard-title-block"><span class="section-subtitle">Administration</span><h1 class="h3 font-heading fw-bold mb-1">Library Management Dashboard</h1><p class="text-muted mb-0">Review the most important library operations and take action quickly.</p></div></div><div class="story-card p-3 mb-3 admin-demo-note"><div class="d-flex align-items-center gap-2"><i class="fa-solid fa-circle-info text-primary"></i><div><strong>Demo Admin Dashboard</strong><div class="small text-muted">This page uses example profiles and browser-local sample data. No admin login is required.</div></div></div></div>
+<!-- SECTION 1: OVERVIEW ANALYTICS CARDS -->
+<section class="dashboard-section admin-welcome-section"><div class="section-title text-center"><span class="section-subtitle">Today at StoryVault</span><span class="badge bg-success-subtle text-success border border-success-subtle mb-2 ms-2" id="adminLiveStatus">● Live browser data</span><h2 class="section-main-heading h2">Operations Overview</h2><p class="section-description">Use the shortcuts below for the tasks that need attention most often.</p></div><div class="row g-3"><div class="col-md-6 col-xl-3"><a class="portal-action-card" href="#sec-requests"><i class="fa-solid fa-clipboard-check"></i><div><strong>Review Requests</strong><small>Approve pending borrow requests</small></div><i class="fa-solid fa-arrow-right"></i></a></div><div class="col-md-6 col-xl-3"><a class="portal-action-card" href="#sec-books"><i class="fa-solid fa-book-circle-plus"></i><div><strong>Manage Catalog</strong><small>Add or update book stock</small></div><i class="fa-solid fa-arrow-right"></i></a></div><div class="col-md-6 col-xl-3"><a class="portal-action-card" href="#sec-members"><i class="fa-solid fa-user-group"></i><div><strong>Manage Members</strong><small>View active member accounts</small></div><i class="fa-solid fa-arrow-right"></i></a></div><div class="col-md-6 col-xl-3"><a class="portal-action-card" href="#sec-orders"><i class="fa-solid fa-cart-flatbed"></i><div><strong>View Orders</strong><small>Track bookstore purchases</small></div><i class="fa-solid fa-arrow-right"></i></a></div></div></section><div class="mb-5" id="sec-overview"><div class="section-heading-center mb-4"><span class="section-subtitle">Key Metrics</span><h2 class="h4 fw-bold">Library Performance</h2><p class="text-muted mb-0">Current catalog, membership, lending, and sales figures.</p></div>
+<div class="row g-4">
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Total Books</span>
+<h3 class="fw-bold mb-0" id="adminMetricTotalBooks">0</h3>
+<small class="text-success" id="adminMetricTotalBooksSub">Live data</small>
+</div>
+<div class="dash-stat-icon"><i class="fa-solid fa-book"></i></div>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Available Books</span>
+<h3 class="fw-bold mb-0" id="adminMetricAvailableBooks">0</h3>
+<small class="text-muted" id="adminMetricAvailableBooksSub">Live data</small>
+</div>
+<div class="dash-stat-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Active Members</span>
+<h3 class="fw-bold mb-0" id="adminMetricMembers">0</h3>
+<small class="text-success" id="adminMetricMembersSub">Live data</small>
+</div>
+<div class="dash-stat-icon"><i class="fa-solid fa-users"></i></div>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Books Borrowed</span>
+<h3 class="fw-bold mb-0" id="adminMetricBorrowed">0</h3>
+<small class="text-warning" id="adminMetricBorrowedSub">Live data</small>
+</div>
+<div class="dash-stat-icon"><i class="fa-solid fa-hand-holding-hand"></i></div>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Overdue Books</span>
+<h3 class="fw-bold mb-0 text-danger" id="adminMetricOverdue">0</h3>
+<small class="text-danger" id="adminMetricOverdueSub">Live data</small>
+</div>
+<div class="dash-stat-icon text-danger" style="background: rgba(231,76,60,0.12);"><i class="fa-solid fa-hourglass-end"></i></div>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Pending Requests</span>
+<h3 class="fw-bold mb-0 text-warning" id="adminMetricPending">0</h3>
+<small class="text-warning" id="adminMetricPendingSub">Live data</small>
+</div>
+<div class="dash-stat-icon text-warning" style="background: rgba(241,196,15,0.12);"><i class="fa-solid fa-bell"></i></div>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Monthly Orders</span>
+<h3 class="fw-bold mb-0" id="adminMetricOrders">0</h3>
+<small class="text-success" id="adminMetricOrdersSub">Live data</small>
+</div>
+<div class="dash-stat-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="dash-stat-card">
+<div>
+<span class="text-muted small d-block">Upcoming Events</span>
+<h3 class="fw-bold mb-0" id="adminMetricEvents">0</h3>
+<small class="text-primary" id="adminMetricEventsSub">Live data</small>
+</div>
+<div class="dash-stat-icon"><i class="fa-solid fa-calendar"></i></div>
+</div>
+</div>
+</div>
+<!-- Activity Bar Visualizers -->
+<div class="row g-4 mt-2">
+<div class="col-lg-8">
+<div class="story-card p-4">
+<h5 class="fw-bold mb-1"><i class="fa-solid fa-chart-bar me-2 text-primary"></i> Monthly Borrowing Activity Trends</h5>
+<small class="text-muted">Total hardcover &amp; paperback loans processed (Jan - Aug 2026)</small>
+<div class="chart-bar-wrap mt-3">
+<div class="chart-bar-item" style="height: 60%;" title="Jan: 850 loans"></div>
+<div class="chart-bar-item" style="height: 72%;" title="Feb: 980 loans"></div>
+<div class="chart-bar-item" style="height: 80%;" title="Mar: 1,100 loans"></div>
+<div class="chart-bar-item" style="height: 68%;" title="Apr: 910 loans"></div>
+<div class="chart-bar-item" style="height: 85%;" title="May: 1,180 loans"></div>
+<div class="chart-bar-item" style="height: 92%;" title="Jun: 1,240 loans"></div>
+<div class="chart-bar-item" style="height: 98%;" title="Jul: 1,320 loans"></div>
+<div class="chart-bar-item" style="height: 100%;" title="Aug: 1,420 loans"></div>
+</div>
+<div class="d-flex justify-content-between text-muted small mt-2">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="story-card p-4 h-100">
+<h5 class="fw-bold mb-3"><i class="fa-solid fa-pie-chart me-2 text-primary"></i> Popular Genres</h5>
+<div class="mb-3">
+<div class="d-flex justify-content-between small mb-1"><span>Fiction &amp; Mystery</span><strong>42%</strong></div>
+<div class="progress" style="height: 8px;"><div class="progress-bar bg-primary" style="width: 42%;"></div></div>
+</div>
+<div class="mb-3">
+<div class="d-flex justify-content-between small mb-1"><span>Historical Fiction</span><strong>28%</strong></div>
+<div class="progress" style="height: 8px;"><div class="progress-bar bg-warning" style="width: 28%;"></div></div>
+</div>
+<div class="mb-3">
+<div class="d-flex justify-content-between small mb-1"><span>Sci-Fi &amp; Astronomy</span><strong>18%</strong></div>
+<div class="progress" style="height: 8px;"><div class="progress-bar bg-info" style="width: 18%;"></div></div>
+</div>
+<div>
+<div class="d-flex justify-content-between small mb-1"><span>Biography &amp; Essays</span><strong>12%</strong></div>
+<div class="progress" style="height: 8px;"><div class="progress-bar bg-success" style="width: 12%;"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: BORROW REQUEST APPROVAL WORKFLOW -->
+<div class="story-card p-4 mb-5 admin-section-card" id="sec-requests">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<div>
+<h5 class="fw-bold mb-0"><i class="fa-solid fa-hand-holding-hand text-primary me-2"></i> Pending Borrow Requests</h5>
+<small class="text-muted">Approving automatically deducts available stock &amp; adds to member's borrowed list.</small>
+</div>
+<span class="badge bg-warning text-dark" id="admin-pending-count">0 Pending</span>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th>Request ID</th>
+<th>Member Name</th>
+<th>Requested Book</th>
+<th>Request Date</th>
+<th>Desk Stock</th>
+<th>Status</th>
+<th>Desk Actions</th>
+</tr>
+</thead>
+<tbody id="admin-borrow-requests-tbody">
+<!-- Rendered dynamically by main.js -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 3: BOOK CATALOG MANAGEMENT -->
+<div class="story-card p-4 mb-5 admin-section-card" id="sec-books">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+<div>
+<h5 class="fw-bold mb-0"><i class="fa-solid fa-book text-primary me-2"></i> Books Catalog Management</h5>
+<small class="text-muted">Manage titles, stock counts, prices, and borrowing availability.</small>
+</div>
+<button class="btn btn-story btn-story-primary glow-effect" data-bs-target="#addBookModal" data-bs-toggle="modal">
+<i class="fa-solid fa-plus me-1"></i> Add New Book
+                    </button>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th>Book Info</th>
+<th>Category</th>
+<th>ISBN</th>
+<th>Total Copies</th>
+<th>Available</th>
+<th>Price</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="admin-catalog-tbody"></tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 4: MEMBER MANAGEMENT -->
+<div class="story-card p-4 mb-5 admin-section-card" id="sec-members">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h5 class="fw-bold mb-0"><i class="fa-solid fa-users text-primary me-2"></i> Library Members Directory</h5>
+<span class="badge bg-primary" id="admin-members-count">0 Active Members</span>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th>Member Profile</th>
+<th>Plan Tier</th>
+<th>Joined Date</th>
+<th>Books Borrowed</th>
+<th>Overdue</th>
+<th>Account Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="admin-members-tbody"></tbody>
+</table></div>
+</div>
+<!-- SECTION 4B: ACTIVE MEMBER LOANS & DUE DATES -->
+<div class="story-card p-4 mb-5 admin-section-card" id="sec-loans">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<div>
+<h5 class="fw-bold mb-0"><i class="fa-solid fa-clock-rotate-left text-primary me-2"></i> Active Member Loans &amp; Due Dates</h5>
+<small class="text-muted">Track checked out books, exact due dates, and process desk returns.</small>
+</div>
+<span class="badge bg-primary" id="admin-active-loans-count">0 Active Loans</span>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th>Loan ID</th>
+<th>Member</th>
+<th>Borrowed Book</th>
+<th>Borrowed Date</th>
+<th>Official Due Date</th>
+<th>Time Left &amp; Status</th>
+<th>Desk Action</th>
+</tr>
+</thead>
+<tbody id="admin-active-loans-tbody"></tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 5: ORDERS MANAGEMENT -->
+<div class="story-card p-4 mb-5 admin-section-card" id="sec-orders">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h5 class="fw-bold mb-0"><i class="fa-solid fa-cart-shopping text-primary me-2"></i> Bookstore Purchases &amp; Orders</h5>
+<span class="badge bg-success" id="admin-orders-count">0 Orders</span>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th>Order ID</th>
+<th>Customer</th>
+<th>Purchased Book</th>
+<th>Date</th>
+<th>Amount</th>
+<th>Order Status</th>
+<th>Manage</th>
+</tr>
+</thead>
+<tbody id="admin-orders-tbody"></tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 6: LIBRARY SETTINGS -->
+<div class="story-card p-4 admin-section-card" id="sec-settings">
+<h5 class="fw-bold mb-3"><i class="fa-solid fa-gear text-primary me-2"></i> Library System &amp; Policy Settings</h5>
+<form class="needs-validation" novalidate="">
+<div class="row g-3">
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Library Brand Name</label>
+<input class="form-control" type="text" value="StoryVault India"/>
+</div>
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Support Email</label>
+<input class="form-control" type="email" value="support@storyvault.in"/>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">Standard Borrowing Duration</label>
+<input class="form-control" type="text" value="14 Days"/>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">Max Online Renewals</label>
+<input class="form-control" type="number" value="2"/>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">Overdue Daily Fine</label>
+<input class="form-control" type="text" value="₹10 / Day"/>
+</div>
+<div class="col-12 text-end">
+<button class="btn btn-story btn-story-primary glow-effect" type="submit">Save Configuration</button>
+</div>
+</div>
+</form>
+</div>
+<div class="dashboard-footer"><a class="navbar-brand fs-6" href="index.html"><i class="fa-solid fa-book-bookmark"></i><span>StoryVault</span></a><small class="text-muted">Admin Dashboard · © 2026</small></div></main>
+</div>
+<!-- ADD NEW BOOK MODAL -->
+<div class="modal fade" id="addBookModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content bg-surface border border-color">
+<div class="modal-header border-bottom border-color">
+<h5 class="modal-title font-heading fw-bold"><i class="fa-solid fa-plus text-primary me-2"></i> Add New Book to Library</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<form class="needs-validation" id="admin-add-book-form" novalidate="" onsubmit="handleAdminAddBook(event)">
+<div class="row g-3">
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Book Title *</label>
+<input class="form-control" id="adminBookTitle" placeholder="e.g. The Midnight Observatory" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Author *</label>
+<input class="form-control" id="adminBookAuthor" placeholder="e.g. Clara Vance" required="" type="text"/>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">Genre / Category *</label>
+<select class="form-select" id="adminBookGenre" required="">
+<option value="Fiction">Fiction</option>
+<option value="Mystery">Mystery &amp; Crime</option>
+<option value="History">Historical Fiction</option>
+<option value="Sci-Fi">Sci-Fi &amp; Astronomy</option>
+</select>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">ISBN *</label>
+<input class="form-control" id="adminBookIsbn" placeholder="978-0-321-0000" required="" type="text"/>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">Total Copies</label>
+<input class="form-control" id="adminBookCopies" min="1" required="" type="number" value="5"/>
+</div>
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Selling Price ($)</label>
+<input class="form-control" id="adminBookPrice" min="0" placeholder="599" step="1" type="number"/>
+</div>
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Cover Image Upload</label>
+<input accept="image/*" class="form-control" id="adminBookCover" type="file"/>
+</div>
+<div class="col-12">
+<label class="form-label small fw-semibold">Description</label>
+<textarea class="form-control" id="adminBookSummary" placeholder="Book synopsis..." rows="3"></textarea>
+</div>
+</div>
+<div class="mt-4 text-end">
+<button class="btn btn-story-secondary me-2" data-bs-dismiss="modal" type="button">Cancel</button>
+<button class="btn btn-story btn-story-primary glow-effect" type="submit">Save Book</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- EDIT BOOK DETAILS MODAL -->
+<div aria-hidden="true" class="modal fade" id="editBookModal" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content bg-surface border border-color shadow-lg">
+<div class="modal-header border-bottom border-color">
+<h5 class="modal-title font-heading fw-bold"><i class="fa-solid fa-pen text-primary me-2"></i> Edit Catalog Book Details</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body p-4">
+<form class="needs-validation" id="admin-edit-book-form" novalidate="" onsubmit="handleAdminSaveBookEdit(event)">
+<input id="editBookId" type="hidden"/>
+<div class="row g-3">
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Book Title *</label>
+<input class="form-control" id="editBookTitle" placeholder="Book Title" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Author *</label>
+<input class="form-control" id="editBookAuthor" placeholder="Author Name" required="" type="text"/>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">Genre / Category *</label>
+<select class="form-select" id="editBookGenre" required="">
+<option value="Fiction">Fiction</option>
+<option value="Mystery">Mystery &amp; Crime</option>
+<option value="History">Historical Fiction</option>
+<option value="Sci-Fi">Sci-Fi &amp; Astronomy</option>
+<option value="Poetry">Poetry &amp; Essays</option>
+<option value="General">General Catalog</option>
+</select>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">ISBN *</label>
+<input class="form-control" id="editBookIsbn" placeholder="978-0-321-0000" required="" type="text"/>
+</div>
+<div class="col-md-4">
+<label class="form-label small fw-semibold">Available Stock Copies *</label>
+<input class="form-control" id="editBookCopies" min="0" required="" type="number"/>
+</div>
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Selling Price (₹)</label>
+<input class="form-control" id="editBookPrice" min="0" placeholder="599" step="1" type="number"/>
+</div>
+<div class="col-md-6">
+<label class="form-label small fw-semibold">Cover Image Path</label>
+<input class="form-control" id="editBookCover" placeholder="assets/images/books/book1.jpg" type="text"/>
+</div>
+<div class="col-12">
+<label class="form-label small fw-semibold">Description / Synopsis</label>
+<textarea class="form-control" id="editBookSummary" placeholder="Book synopsis..." rows="3"></textarea>
+</div>
+</div>
+<div class="mt-4 text-end">
+<button class="btn btn-story-secondary me-2" data-bs-dismiss="modal" type="button">Cancel</button>
+<button class="btn btn-story btn-story-primary glow-effect" type="submit"><i class="fa-solid fa-check me-1"></i> Update Book Details</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
